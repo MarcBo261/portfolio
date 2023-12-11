@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page de connexion</title>
+    <link href="{% static '/assets/css/form-signup.css' %}" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <form class="form" method="post" role="form">
+        {% csrf_token %}
+        <p class="title">Inscription </p>
+        <p class="message">Inscrivez-vous pour donner une observation </p>
+
+        <label>
+            <input class="input" type="text" placeholder="" required="" name="identifiant">
+            <span>Identifiant</span>
+        </label>
+
+        <label>
+            <input class="input" type="password" placeholder="" required="" name="pass1">
+            <span>Password</span>
+        </label>
+        <label>
+            <input class="input" type="password" placeholder="" required="" name="pass2">
+            <span>Confirmer password</span>
+        </label>
+        <button class="submit">S'inscrire</button>
+        <p class="signin">Vous avez déjà un compte ? <a href="#">Se connecter</a> </p>
+    </form>
+
+</body>
+
+</html>

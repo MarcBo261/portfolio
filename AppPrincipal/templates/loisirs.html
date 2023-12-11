@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Marc - Portfolio</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="{% static '/assets/img/favicon.png' %}" rel="icon">
+    <link href="{% static '/assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+        rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="{% static '/assets/vendor/aos/aos.css' %}" rel="stylesheet">
+    <link href="{% static '/assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static '/assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static '/assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+    <link href="{% static '/assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+    <link href="{% static '/assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="{% static '/assets/css/style.css' %}" rel="stylesheet">
+
+    <!-- =======================================================
+  * Template Name: MyResume
+  * Updated: Nov 17 2023 with Bootstrap v5.3.2
+  * Template URL: https://bootstrapmade.com/free-html-bootstrap-template-my-resume/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+    <!-- ======= Mobile nav toggle button ======= -->
+    <!-- <button type="button" class="mobile-nav-toggle d-xl-none"><i class="bi bi-list mobile-nav-toggle"></i></button> -->
+    <i class="bi bi-list mobile-nav-toggle d-lg-none"></i>
+    <!-- ======= Header ======= -->
+    <header id="header" class="d-flex flex-column justify-content-center">
+
+        <nav id="navbar" class="navbar nav-menu">
+            <ul>
+                <li><a href="{% url 'index' %}" class="nav-link scrollto"><i class="bx bx-home"></i>
+                        <span>Accueil</span></a>
+                </li>
+                <li><a href="{% url 'index' %}#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>A
+                            propos</span></a></li>
+                <li><a href="{% url 'skills' %}" class="nav-link scrollto"><i
+                            class="bx bx-file-blank"></i><span>Compétences</span></a>
+                </li>
+                <li><a href="{% url 'resume' %}" class="nav-link scrollto"><i class="bx bx-file-blank"></i>
+                        <span>Parcours</span></a>
+                </li>
+                <li><a href="{% url 'realisation' %}" class="nav-link scrollto"><i class="bx bx-book-content"></i>
+                        <span>Portfolio</span></a>
+                </li>
+                <li><a href="{% url 'loisir' %}" class="nav-link scrollto active"><i class="bx bx-server"></i>
+                        <span>Loisirs</span></a>
+                </li>
+                <li><a href="{% url 'contact' %}" class="nav-link scrollto"><i class="bx bx-envelope"></i>
+                        <span>Contact</span></a>
+                </li>
+            </ul>
+        </nav><!-- .nav-menu -->
+
+    </header><!-- End Header -->
+
+    <main id="main">
+
+        <section id="services" class="services">
+            <div class="container" data-aos="fade-up">
+
+                <div class="section-title">
+                    <h2>Mes loisirs</h2>
+                    <p>Quand je ne suis pas en train de coder</p>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in"
+                        data-aos-delay="300">
+                        <div class="icon-box iconbox-teal">
+
+                            <img src="{%static 'assets/img/billard.jpeg'%}" class="card-img-top" alt="...">
+                            <p>Joueur professionnel</p>
+                            <p>Coach</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in"
+                        data-aos-delay="300">
+                        <div class="icon-box iconbox-teal">
+
+                            <img src="{%static 'assets/img/alpha.jpg'%}" class="card-img-top" width="350" height="200"
+                                alt="...">
+                            <p>Président Alpha Billard Club</p>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in"
+                        data-aos-delay="300">
+                        <div class="icon-box iconbox-teal">
+
+                            <img src="{%static 'assets/img/dota2.jpg'%}" class="card-img-top" alt="...">
+                            <p>Jeux vidéos - DOTA2</p>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section><!-- End Services Section -->
+
+
+    </main>
+    <!-- End #main -->
+
+
+
+    <!-- Vendor JS Files -->
+    <script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+    <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+    <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/typed.js/typed.umd.js' %}"></script>
+    <script src="{% static 'assets/vendor/waypoints/noframework.waypoints.js' %}"></script>
+    <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+
+    <!-- Template Main JS File -->
+    <script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+
+</html>
