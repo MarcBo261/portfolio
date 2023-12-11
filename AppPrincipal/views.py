@@ -12,9 +12,13 @@ from django.contrib.auth.decorators import login_required
 
 @login_required
 def observation(request):
-    template = loader.get_template('observations.html')  # Get the template
-    context = {}
-    return HttpResponse(template.render(context, request))  # Render the template with the context
+    if not request.session:
+        return redirect('connexion')
+    else :
+        template = loader.get_template('observations.html')  # Get the template
+        context = {}
+        print(request.session.get('mpandalo'))
+        return HttpResponse(template.render(context, request))  # Render the template with the context
 def connexion(request):
     if request.method == 'POST':
         username = request.POST['identifiant']
@@ -22,6 +26,7 @@ def connexion(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
+            request.session['mpandalo'] = username
             return redirect('observation')
         else :
             render(request,'registration/login.html')
