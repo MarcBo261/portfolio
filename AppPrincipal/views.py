@@ -3,12 +3,29 @@ from django.template import loader
 from django.contrib.auth.forms import UserCreationForm
 from AppPrincipal.forms import ContactForm
 from django.core.mail import send_mail, BadHeaderError
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from .forms import ContactForm
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
 
+@login_required
+def observation(request):
+    template = loader.get_template('observations.html')  # Get the template
+    context = {}
+    return HttpResponse(template.render(context, request))  # Render the template with the context
 def connexion(request):
+    if request.method == 'POST':
+        username = request.POST['identifiant']
+        password = request.POST['pass1']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('observation')
+        else :
+            render(request,'registration/login.html')
+
     return render(request,'registration/login.html')
 def signup(request):
     if request.method == 'POST':
@@ -18,9 +35,9 @@ def signup(request):
             pass1 = request.POST.get('pass1')
             pass2 = request.POST.get('pass2')
 
-            visiteur = User.objects.create_user(uname,'',pass1)
+            visiteur = User.objects.create_user(username=uname, password=pass1)
             visiteur.save()
-            return redirect('registration/login.html')
+            return redirect('/connexion/')
     else:
         form = UserCreationForm()
     return render(request,'registration/signup.html',{'form':form})
